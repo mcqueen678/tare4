@@ -1,1 +1,91 @@
+// Include theming for Angular Material with `mat.theme()`.
+// This Sass mixin will define CSS variables that are used for styling Angular Material
+// components according to the Material 3 design spec.
+// Learn more about theming and how to use it for your application's
+// custom components at https://material.angular.dev/guide/theming
+@use '@angular/material' as mat;
+@use 'tailwindcss';
+
+html {
+  height: 100%;
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+}
+
+body {
+  // Default the application to a light color theme. This can be changed to
+  // `dark` to enable the dark color theme, or to `light dark` to defer to the
+  // user's system settings.
+  color-scheme: light;
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  height: 100%;
+
+  // Set a default background, font and text colors for the application using
+  // Angular Material's system-level CSS variables. Learn more about these
+  // variables at https://material.angular.dev/guide/system-variables
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+
+  // Reset the user agent margin.
+  margin: 0;
+  height: 100%;
+}
 /* You can add global styles to this file, and also import other style files */
+button, .btn-turquesa {
+  background-color: #1e848e;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: none;
+
+  &:hover {
+    background-color: #155e66;
+  }
+}
+
+// 2. Excepción limpia para los botones oscuros de pago (como el botón "Pay")
+.btn-oscuro {
+  background-color: #0f172a;
+  color: white;
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-align: center;
+  border: none;
+  
+  &:hover {
+    background-color: #1e293b;
+  }
+}
+
+// 3. Estilo global automático para limpiar las cajas de texto de los emails
+input[type="email"] {
+  width: 100%;
+  background-color: transparent;
+  padding: 12px 16px;
+  font-size: 0.875rem;
+  color: #1e293b;
+  outline: none;
+  border: none;
+}
